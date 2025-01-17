@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="s16n.Hookster.SettingsControlDemo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converter="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" xmlns:local="clr-namespace:s16n.Hookster" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:styles="clr-namespace:SimHub.Plugins.Styles;assembly=SimHub.Plugins" xmlns:ui="clr-namespace:SimHub.Plugins.UI;assembly=SimHub.Plugins" mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid>
+            <styles:SHSection Title="Hookster" Grid.ColumnSpan="2" ShowSeparator="True">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Idle timeout in seconds" />
+                        <TextBox Grid.Column="1" x:Name="idleTime" Text="14400" TextAlignment="Right" Height="16" TextChanged="IdleTimeoutChanged"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Idle Script" />
+                        <TextBox Grid.Column="1" x:Name="idleBatPath" Text="hooksterIdle.bat" TextAlignment="Right" Height="16" TextChanged="IdleBatPath"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Active Script" />
+                        <TextBox Grid.Column="1" x:Name="activeBatPath" Text="hooksterActive.bat" TextAlignment="Right" Height="16" TextChanged="ActiveBatPath"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Game Change Script" />
+                        <TextBox Grid.Column="1" x:Name="gameChangeScript" Text="" TextAlignment="Right" Height="16" TextChanged="GameChangeScriptChanged"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Idle Webhook" />
+                        <TextBox Grid.Column="1" x:Name="idleWebhook" Text="" TextAlignment="Right" Height="16" TextChanged="IdleWebhookChanged"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Active Webhook" />
+                        <TextBox Grid.Column="1" x:Name="activeWebhook" Text="" TextAlignment="Right" Height="16" TextChanged="ActiveWebhookChanged"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Webhook 1" />
+                        <TextBox Grid.Column="1" x:Name="webhook1" Text="" TextAlignment="Right" Height="16" TextChanged="Webhook1Changed"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Webhook 2" />
+                        <TextBox Grid.Column="1" x:Name="webhook2" Text="" TextAlignment="Right" Height="16" TextChanged="Webhook2Changed"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Webhook 3" />
+                        <TextBox Grid.Column="1" x:Name="webhook3" Text="" TextAlignment="Right" Height="16" TextChanged="Webhook3Changed"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150px"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Webhook 4" />
+                        <TextBox Grid.Column="1" x:Name="webhook4" Text="" TextAlignment="Right" Height="16" TextChanged="Webhook4Changed"/>
+                    </Grid>                    
+                </StackPanel>
+            </styles:SHSection>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
