@@ -9,6 +9,6 @@ The idle timeout of 2 hours is hardcoded, honestly I was too lazy to wire up the
 
 Why? I wanted to power off my Bass Shaker amps, Belt Tensioner power supply, VR headset and lighthouses when I stop playing. Sometimes I forget. I don't want to turn them on automatically, but the option is there with TelemetryActive.
 
-So I configure an event on TelemetryIdle. It runs a ShellMacro that uses curl to sent an HTTP request to turn off a Shelly Power Plus Outlet :-)
+So I configure an event on TelemetryIdle. It runs a ShellMacro that uses curl to send an HTTP request to turn off a Shelly Power Plus Outlet :-)
 
 It was hacked together, very simple, but maybe it is useful to others.
