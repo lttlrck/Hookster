@@ -10,7 +10,7 @@ namespace s16n.TelemetryDetector
     [PluginName("Telemetry Detector")]
     public class TelemetryDetector : IPlugin, IDataPlugin, IWPFSettingsV2
     {
-        public DataPluginDemoSettings Settings;
+        public TelemetryDetectorSettings Settings;
 
         /// <summary>
         /// Instance of the current plugin manager
@@ -71,7 +71,7 @@ namespace s16n.TelemetryDetector
             //}
 
             // if the last receive time is older than the configured timeout, send idle
-            if (active == true && (lastPacketTime.AddSeconds(3600*2) < DateTime.Now))
+            if (active == true && (lastPacketTime.AddSeconds(Settings.IdleTimeout) < DateTime.Now))
             {
                 active = false;
                 
@@ -116,7 +116,7 @@ namespace s16n.TelemetryDetector
             SimHub.Logging.Current.Info("Starting plugin");
 
             // Load settings
-            Settings = this.ReadCommonSettings<DataPluginDemoSettings>("GeneralSettings", () => new DataPluginDemoSettings());
+            Settings = this.ReadCommonSettings<TelemetryDetectorSettings>("GeneralSettings", () => new TelemetryDetectorSettings());
             SimHub.Logging.Current.Info(Settings.IdleTimeout);
             // Declare a property available in the property list, this gets evaluated "on demand" (when shown or used in formulas)
             //this.AttachDelegate(name: "CurrentDateTime", valueProvider: () => DateTime.Now);
