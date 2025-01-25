@@ -49,15 +49,16 @@ namespace s16n.TelemetryDetector
                     {
                         if (data.OldData.PacketTime.Year == 1)
                         {
-                            SimHub.Logging.Current.Info("MSFS:  first timestamp after pause is incorrect (has year 1)");
+                            SimHub.Logging.Current.Info("first timestamp after pause is empty, ignore");
                             return;
                         }
+
                         // if we are receiving telemtry, update last receive time  
                         lastPacketTime = data.OldData.PacketTime;
                         //SimHub.Logging.Current.Info(data.OldData.PacketTime);
                         // Trigger an event
 
-                        if (!active)
+                        if (!active) 
                         {
                             this.TriggerEvent("TelemetryActive");
                             SimHub.Logging.Current.Info("TelemetryActive");
