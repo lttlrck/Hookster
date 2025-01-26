@@ -1,6 +1,8 @@
 ﻿using GameReaderCommon;
 using SimHub.Plugins;
 using System;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace s16n.TelemetryDetector
@@ -26,13 +28,20 @@ namespace s16n.TelemetryDetector
         /// Gets a short plugin title to show in left menu. Return null if you want to use the title as defined in PluginName attribute.
         /// </summary>
         public string LeftMenuTitle => "Telemetry Detector";
+        void runScript(string game)
+        {
+            if( File.Exists("C:\\Program Files (x86)\\SimHub\\ShellMacros\\telemetryDetector.bat"))
+            {
+                System.Diagnostics.Process.Start("C:\\Program Files (x86)\\SimHub\\ShellMacros\\telemetryDetector.bat", game);
+            }
+        }
 
         /// <summary>
         /// Called one time per game data update, contains all normalized game data,
         /// raw data are intentionally "hidden" under a generic object type (A plugin SHOULD NOT USE IT)
         ///
         /// This method is on the critical path, it must execute as fast as possible and avoid throwing any error
-        ///
+        /// 
         /// </summary>
         /// <param name="pluginManager"></param>
         /// <param name="data">Current game data, including current and previous data frame.</param>
@@ -42,7 +51,7 @@ namespace s16n.TelemetryDetector
 
             // Define the value of our property (declared in init)
             if (data.GameRunning)
-            {
+            { 
                 if (data.OldData != null && data.NewData != null)
                 {
                     if (data.OldData.PacketTime.Second != lastPacketTime.Second )
@@ -61,7 +70,12 @@ namespace s16n.TelemetryDetector
                         if (!active) 
                         {
                             this.TriggerEvent("TelemetryActive");
-                            SimHub.Logging.Current.Info("TelemetryActive");
+                            SimHub.Logging.Current.Info("TelemetryActive " + data.GameName);
+
+                            var name = data.GameName;
+
+                            _ = Task.Run(() => runScript(name));
+
                             active = true;
                         } 
                     }
