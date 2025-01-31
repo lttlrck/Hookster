@@ -8,23 +8,27 @@ if (GAME == "Automobilista2") {
 	GAME :="Automobilista 2"
 }
 
-WinActivate("ahk_exe PimaxClient.exe")
+if(WinExist("ahk_exe PimaxClient.exe")) {
+	
+	WinActivate("ahk_exe PimaxClient.exe")
 
-WinMaximize("PimaxClient")
+	WinMaximize("PimaxClient")
 
-Click 72,34
-Click 2220,570
-Sleep 500
+	Click 72,34
+	Click 2220,570
+	Sleep 500
 
-WinMinimize("PimaxClient")
+	WinMinimize("PimaxClient")
 
-WinActivate("ahk_exe DeviceSetting.exe")
-Click 90,171
-Click 893,107
-Click
-Send GAME
-Click 806,690
-Sleep 500
-Click 990,20
+	WinActivate("ahk_exe DeviceSetting.exe")
+	Click 90,171
+	Click 893,107
+	Click
+	Send GAME
+	Click 806,690
+	Sleep 500
+	Click 990,20
 
-WinMinimize("Device Settings")
+	WinMinimize("Device Settings")
+}
+
